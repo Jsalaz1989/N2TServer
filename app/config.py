@@ -23,17 +23,17 @@ class BaseConfig(object):
     SECURITY_CONFIRMABLE = True
     #SECURITY_EMAIL_SENDER = 'autom8t8r@gmail.com'	# defaults to Flask-Mail's MAIL_DEFAULT_SENDER
 
-    SQLALCHEMY_DATABASE_URI = 'postgresql://localhost/autom8'
+    SQLALCHEMY_DATABASE_URI = 'postgresql://localhost/n2t'
     SQLALCHEMY_TRACK_MODIFICATIONS = False  # eventually will become unecessary
 
-    index = 'index.html'
-    SECURITY_FORGOT_PASSWORD_TEMPLATE = index	
-    SECURITY_LOGIN_USER_TEMPLATE = index
-    SECURITY_REGISTER_USER_TEMPLATE = index	
-    SECURITY_RESET_PASSWORD_TEMPLATE = index
-    SECURITY_CHANGE_PASSWORD_TEMPLATE = index
-    SECURITY_SEND_CONFIRMATION_TEMPLATE = index
-    SECURITY_SEND_LOGIN_TEMPLATE = index
+    # index = 'index.html'
+    # SECURITY_FORGOT_PASSWORD_TEMPLATE = index	
+    # SECURITY_LOGIN_USER_TEMPLATE = index
+    # SECURITY_REGISTER_USER_TEMPLATE = index	
+    # SECURITY_RESET_PASSWORD_TEMPLATE = index
+    # SECURITY_CHANGE_PASSWORD_TEMPLATE = index
+    # SECURITY_SEND_CONFIRMATION_TEMPLATE = index
+    # SECURITY_SEND_LOGIN_TEMPLATE = index
 
 
 
@@ -54,9 +54,24 @@ class DevelopmentConfig(BaseConfig):
     DEBUG = True
     TESTING = True
 
-    TEMPLATE_FOLDER = '../client/public'
+    TEMPLATE_FOLDER = '../templates'
     STATIC_FOLDER = '../client/public'
 
 
+class TestingConfig(BaseConfig):
+    """Testing environment specific configuration"""
+ 
+    # Bcrypt algorithm hashing rounds (reduced for testing purposes only!)
+    BCRYPT_LOG_ROUNDS = 4
+    
+    # Enable the TESTING flag to disable the error catching during request handling
+    # so that you get better error reports when performing test requests against the application.
+    TESTING = True
+    
+    # Disable CSRF tokens in the Forms (only valid for testing purposes!)
+    WTF_CSRF_ENABLED = False
+
+    TEMPLATE_FOLDER = '../client/public'
+    STATIC_FOLDER = '../client/public'
 
 

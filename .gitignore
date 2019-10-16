@@ -1,4 +1,5 @@
 # Based off: https://github.com/pallets/flask/blob/master/.gitignore
+# At the end are some more you may want to add: https://flask.palletsprojects.com/en/1.1.x/tutorial/layout/
 
 .DS_Store
 .env
