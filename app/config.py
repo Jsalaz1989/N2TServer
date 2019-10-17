@@ -58,7 +58,7 @@ class DevelopmentConfig(BaseConfig):
     TESTING = True
 
     TEMPLATE_FOLDER = '../templates'
-    STATIC_FOLDER = '../client/public'
+    STATIC_FOLDER = '../static'
 
 
 class TestingConfig(BaseConfig):
