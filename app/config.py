@@ -18,7 +18,7 @@ class BaseConfig(object):
     MAIL_DEFAULT_SENDER = 'autom8t8r@gmail.com'
 
     SECRET_KEY = urandom(24)
-    SECURITY_PASSWORD_SALT = 'penis'
+    SECURITY_PASSWORD_SALT = 'mySalt'
     #SESSION_COOKIE_HTTPONLY = True     # True by default
     SECURITY_CONFIRMABLE = True
     #SECURITY_EMAIL_SENDER = 'autom8t8r@gmail.com'	# defaults to Flask-Mail's MAIL_DEFAULT_SENDER
