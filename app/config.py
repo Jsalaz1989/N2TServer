@@ -37,6 +37,11 @@ class BaseConfig(object):
 
     CORS_HEADERS = 'Content-Type'
 
+    HOST = 'localhost'
+    PORT = 5000
+
+    TEMPLATE_FOLDER = '../templates'
+    STATIC_FOLDER = '../static'
 
 
 
@@ -46,9 +51,8 @@ class ProductionConfig(BaseConfig):
     DEBUG = False
     SESSION_COOKIE_SECURE = True    # requires https?
 
-    TEMPLATE_FOLDER = 'N2TApp/client/build'
-    STATIC_FOLDER = 'N2TApp/client/build/static'
-
+    HOST = 'https://n2t.herokuapp.com'
+    PORT = 8000
 
 
 class DevelopmentConfig(BaseConfig):
@@ -57,8 +61,7 @@ class DevelopmentConfig(BaseConfig):
     DEBUG = True
     TESTING = True
 
-    TEMPLATE_FOLDER = '../templates'
-    STATIC_FOLDER = '../static'
+
 
 
 class TestingConfig(BaseConfig):
