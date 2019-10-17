@@ -35,6 +35,9 @@ class BaseConfig(object):
     # SECURITY_SEND_CONFIRMATION_TEMPLATE = index
     # SECURITY_SEND_LOGIN_TEMPLATE = index
 
+    CORS_HEADERS = 'Content-Type'
+
+
 
 
 class ProductionConfig(BaseConfig):

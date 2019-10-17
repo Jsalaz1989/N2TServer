@@ -10,7 +10,11 @@ from ...email import send_email
 
 from datetime import datetime
 
+from flask_cors import cross_origin
+
+
 @authBlueprint.route('/checkUserExists', methods=["POST"])
+@cross_origin()
 def checkUserExists():
 	
 	email = request.data.decode()
