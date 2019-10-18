@@ -12,6 +12,8 @@ from .email import mail
 
 from .config import DevelopmentConfig
 
+from app import commands
+
 #Config = 'config.DevelopmentConfig'
 #def create_app(config_class=Config):
 def create_app(config_class=DevelopmentConfig):
@@ -57,5 +59,7 @@ def create_app(config_class=DevelopmentConfig):
     userDatastore = SQLAlchemyUserDatastore(db, User, Role)
     security = Security(app, userDatastore)     # must be after loading everything into app, like registering blueprints
     CORS(app)
+
+    app.cli.add_command(commands.create_tables)
     
     return app
