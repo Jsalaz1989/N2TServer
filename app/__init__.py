@@ -39,6 +39,9 @@ def create_app(config_class=DevelopmentConfig):
         app.register_blueprint(homeBlueprint)
         app.register_blueprint(authBlueprint)
 
+        # Initialize database (Heroku doesn't see DATABASE_URL?)
+        db.init_app(app)
+
     # Catch-all chooses client routes (React) over server routes (Flask)
     @app.route('/', defaults={'path': ''})
     @app.route('/<path:path>')
@@ -46,8 +49,7 @@ def create_app(config_class=DevelopmentConfig):
         return render_template('index.html')
         #return 'You want path: %s' % path
 
-    # Initialize database
-    db.init_app(app)
+
 
     # Initialize database migration
     migrate.init_app(app, db)
