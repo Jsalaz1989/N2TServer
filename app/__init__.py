@@ -22,6 +22,7 @@ def create_app(config_class=DevelopmentConfig):
     # Load Flask app    
     app = Flask(__name__, instance_path=abspath('.'), instance_relative_config=True)
 
+    print('init.py : config_class = ', config_class)
 
 
     
