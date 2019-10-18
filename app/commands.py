@@ -7,4 +7,5 @@ from app.models import db
 @click.command(name='create_tables')
 @with_appcontext
 def create_tables():
+    print('app.config["SQLALCHEMY_DATABASE_URI"] = ', app.config['SQLALCHEMY_DATABASE_URI'])
     db.create_all()
