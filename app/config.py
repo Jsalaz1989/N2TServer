@@ -23,9 +23,6 @@ class BaseConfig(object):
     SECURITY_CONFIRMABLE = True
     #SECURITY_EMAIL_SENDER = 'autom8t8r@gmail.com'	# defaults to Flask-Mail's MAIL_DEFAULT_SENDER
 
-    SQLALCHEMY_DATABASE_URI = 'postgresql://localhost/n2t'
-    SQLALCHEMY_TRACK_MODIFICATIONS = False  # eventually will become unecessary
-
     # index = 'index.html'
     # SECURITY_FORGOT_PASSWORD_TEMPLATE = index	
     # SECURITY_LOGIN_USER_TEMPLATE = index
@@ -54,6 +51,10 @@ class ProductionConfig(BaseConfig):
     HOST = 'https://n2t.herokuapp.com'
     PORT = 8000
 
+    SQLALCHEMY_DATABASE_URI = environ.get('DATABASE_URL')
+    SQLALCHEMY_TRACK_MODIFICATIONS = False  # eventually will become unecessary
+
+
 
 class DevelopmentConfig(BaseConfig):
     """Development environment specific configuration"""
@@ -61,7 +62,8 @@ class DevelopmentConfig(BaseConfig):
     DEBUG = True
     TESTING = True
 
-
+    SQLALCHEMY_DATABASE_URI = 'postgresql://localhost/n2t'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False  # eventually will become unecessary
 
 
 class TestingConfig(BaseConfig):
