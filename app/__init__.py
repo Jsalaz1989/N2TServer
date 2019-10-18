@@ -40,6 +40,7 @@ def create_app(config_class=DevelopmentConfig):
         app.register_blueprint(authBlueprint)
 
         # Initialize database (Heroku doesn't see DATABASE_URL?)
+        print('init.py : app.config["SQLALCHEMY_DATABASE_URI"] = ', app.config['SQLALCHEMY_DATABASE_URI'])
         db.init_app(app)
 
     # Catch-all chooses client routes (React) over server routes (Flask)
