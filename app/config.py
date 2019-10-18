@@ -51,7 +51,7 @@ class ProductionConfig(BaseConfig):
     HOST = 'https://n2t.herokuapp.com'
     PORT = 8000
 
-    SQLALCHEMY_DATABASE_URI = environ.get('DATABASE_URL')
+    SQLALCHEMY_DATABASE_URI = environ.get('DATABASE_URL') + '?sslmode=require'
     SQLALCHEMY_TRACK_MODIFICATIONS = False  # eventually will become unecessary
 
 
