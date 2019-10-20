@@ -17,6 +17,8 @@ from app import commands
 import traceback
 import sys
 
+import os
+
 
 #Config = 'config.DevelopmentConfig'
 #def create_app(config_class=Config):
