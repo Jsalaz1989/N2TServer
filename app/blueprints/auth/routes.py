@@ -90,8 +90,8 @@ def confirmUser():
 		db.session.commit()
 		print('Email confirmed')
 
-	return redirect('http://localhost:3000/registerConfirmed?email='+email)
-	# return redirect('/registerConfirmed?email='+email)
+	# return redirect('http://localhost:3000/registerConfirmed?email='+email)
+	return redirect('/registerConfirmed?email='+email)
 
 
 @authBlueprint.route('/logInUser', methods=["POST"])
