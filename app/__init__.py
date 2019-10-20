@@ -22,7 +22,7 @@ import sys
 #def create_app(config_class=Config):
 def create_app(config_class=DevelopmentConfig):
 
-    if (os.environ.get('FLASK_ENV') == 'production')
+    if os.environ.get('FLASK_ENV') == 'production':
         config_class = ProductionConfig
 
     # print('init.py : sys.last_traceback = ', sys.last_traceback)
