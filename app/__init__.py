@@ -14,6 +14,8 @@ from .config import DevelopmentConfig
 
 from app import commands
 
+import sys
+
 #Config = 'config.DevelopmentConfig'
 #def create_app(config_class=Config):
 def create_app(config_class=DevelopmentConfig):
@@ -22,6 +24,7 @@ def create_app(config_class=DevelopmentConfig):
     # Load Flask app    
     app = Flask(__name__, instance_path=abspath('.'), instance_relative_config=True)
 
+    print('init.py : sys.last_traceback = ', sys.last_traceback)
     print('init.py : config_class = ', config_class)
 
 
