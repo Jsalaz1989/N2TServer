@@ -43,11 +43,12 @@ def registerUser():
 	# print('email = ', email)
 	# print('password = ', password)
 
-	newUser = User(email=email, password=hash_password(password))
-	db.session.add(newUser)
-	db.session.commit()
+	if not request.args.post('resendEmail'):
+		newUser = User(email=email, password=hash_password(password))
+		db.session.add(newUser)
+		db.session.commit()
 
-	token = generate_confirmation_token(newUser.email)
+	token = generate_confirmation_token(email)
 	print('token = ', token)
 	
 	confirm_url = url_for('auth.confirmUser', token=token, _external=True)
