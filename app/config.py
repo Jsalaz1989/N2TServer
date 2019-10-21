@@ -1,4 +1,6 @@
 from os import urandom, environ
+from os.path import abspath
+
 
 class BaseConfig(object):
     """Base config class"""
@@ -37,8 +39,8 @@ class BaseConfig(object):
     HOST = 'localhost'
     PORT = 5000
 
-    TEMPLATE_FOLDER = './templates'
-    STATIC_FOLDER = './static'
+    TEMPLATE_FOLDER = abspath('../templates')
+    STATIC_FOLDER = abspath('../static')
 
 
 
