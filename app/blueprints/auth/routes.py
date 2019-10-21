@@ -48,8 +48,8 @@ def registerUser():
 	print('user = ', user)
 
 	if not user:
-		newUser = User(email=email, password=hash_password(password))
-		db.session.add(newUser)
+		user = User(email=email, password=hash_password(password))
+		db.session.add(user)
 		db.session.commit()
 
 	token = generate_confirmation_token(email)
@@ -60,7 +60,7 @@ def registerUser():
 
 	confEmailText = 'Please click on the link to activate your account: ' + confirm_url
 	send_email(subject='Welcome', 
-			   recipients=[newUser.email], 
+			   recipients=[user.email], 
 			   text_body=confEmailText, 
 			   #html_body='<h1>HTML body</h1>'
 			   )
