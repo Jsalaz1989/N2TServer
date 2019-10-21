@@ -37,8 +37,8 @@ class BaseConfig(object):
     HOST = 'localhost'
     PORT = 5000
 
-    TEMPLATE_FOLDER = '../templates'
-    STATIC_FOLDER = '../static'
+    TEMPLATE_FOLDER = './templates'
+    STATIC_FOLDER = './static'
 
 
 
