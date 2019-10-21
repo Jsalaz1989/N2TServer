@@ -13,12 +13,12 @@ def generate_confirmation_token(email):
 
 def confirm_token(token, expiration=3600):
 
-    app = current_app._get_current_object()
+    # app = current_app._get_current_object()
 
-    print('app.config["SECRET_KEY"] = ', app.config["SECRET_KEY"])
+    print('current_app.config["SECRET_KEY"] = ', current_app.config["SECRET_KEY"])
     print('token = ', token)
 
-    serializer = URLSafeTimedSerializer(app.config['SECRET_KEY'])
+    serializer = URLSafeTimedSerializer(current_app.config['SECRET_KEY'])
     try:
         email = serializer.loads(
             token,
