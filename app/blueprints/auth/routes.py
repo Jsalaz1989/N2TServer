@@ -77,7 +77,7 @@ def confirmUser():
 	
 	if not email:
 		# return redirect('/confirmed?email=null')
-    	return redirect(current_app.config['FRONTEND_URL'] + '/confirmed?email=null')
+		return redirect(current_app.config['FRONTEND_URL'] + '/confirmed?email=null')
 
 
 	print('Querying for user')
