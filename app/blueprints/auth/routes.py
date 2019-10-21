@@ -113,12 +113,14 @@ def logInUser():
 	print("user = ", user)
 
 	if not user.active:
-		print('User not activated')
-		return jsonify(userLoggedIn=False)
+		msg = 'User not activated'
+		print(msg)
+		return jsonify(userLoggedIn=False, errorMsg=msg)
 
 	if not verify_password(password, user.password):
-		print('Incorrect password')
-		return jsonify(userLoggedIn=False)
+		msg = 'Incorrect password'
+		print(msg)
+		return jsonify(userLoggedIn=False, errorMsg=msg)
 		#return json.dumps({'success':True}), 205, {'ContentType':'application/json'} 
 	
 	print('Logging user in')
