@@ -43,7 +43,11 @@ def registerUser():
 	# print('email = ', email)
 	# print('password = ', password)
 
-	if not request.args.get('resendEmail'):
+	print('Querying for user')
+	user = User.query.filter_by(email=email).first()
+	print('user = ', user)
+
+	if not user:
 		newUser = User(email=email, password=hash_password(password))
 		db.session.add(newUser)
 		db.session.commit()
