@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template, session, jsonify, json, redirect, url_for, abort
+from flask import Blueprint, request, render_template, session, jsonify, json, redirect, url_for, abort, current_app
 from flask_security.utils import hash_password, verify_password, login_user
 from ...models import db, User
 
@@ -76,7 +76,9 @@ def confirmUser():
 		print('Token corrupted or expired')
 	
 	if not email:
-		return redirect('/confirmed?email=null')
+		# return redirect('/confirmed?email=null')
+    	return redirect(current_app.config['FRONTEND_URL'] + '/confirmed?email=null')
+
 
 	print('Querying for user')
 	user = User.query.filter_by(email=email).first()
@@ -91,7 +93,8 @@ def confirmUser():
 		print('Email confirmed')
 
 	# return redirect('http://localhost:3000/registerConfirmed?email='+email)
-	return redirect('/registerConfirmed?email='+email)
+	# return redirect('/registerConfirmed?email='+email)
+	return redirect(current_app.config['FRONTEND_URL'] + '/registerConfirmed?email='+email)
 
 
 @authBlueprint.route('/logInUser', methods=["POST"])
@@ -170,7 +173,8 @@ def resetPassword():
 		print('Token 1 corrupted or expired')
 
 	if not email:
-		return redirect('/confirmed?email=null')
+		# return redirect('/confirmed?email=null')
+		return redirect(current_app.config['FRONTEND_URL'] + '/confirmed?email=null')
 
 	try:
 		token2 = request.args.get('token2')
@@ -190,4 +194,5 @@ def resetPassword():
 	print('Password reset to ' + newPassword)
 
 	# return redirect('http://localhost:3000/resetConfirmed?email='+email)
-	return redirect('/resetConfirmed?email='+email)
+	# return redirect('/resetConfirmed?email='+email)
+	return redirect(current_app.config['FRONTEND_URL'] + '/resetConfirmed?email='+email)

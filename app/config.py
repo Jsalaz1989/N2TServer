@@ -55,6 +55,8 @@ class ProductionConfig(BaseConfig):
     SQLALCHEMY_DATABASE_URI = environ.get('DATABASE_URL')
     SQLALCHEMY_TRACK_MODIFICATIONS = False  # eventually will become unecessary
 
+    FRONTEND_URL = 'https://jsalaz1989.github.io'
+
 
 
 class DevelopmentConfig(BaseConfig):
@@ -65,6 +67,8 @@ class DevelopmentConfig(BaseConfig):
 
     SQLALCHEMY_DATABASE_URI = 'postgresql://localhost/n2t'
     SQLALCHEMY_TRACK_MODIFICATIONS = False  # eventually will become unecessary
+
+    FRONTEND_URL = 'locahlhost:3000'
 
 
 class TestingConfig(BaseConfig):
