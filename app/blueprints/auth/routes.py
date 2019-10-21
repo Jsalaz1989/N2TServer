@@ -43,7 +43,7 @@ def registerUser():
 	# print('email = ', email)
 	# print('password = ', password)
 
-	if not request.args.post('resendEmail'):
+	if not request.args.get('resendEmail'):
 		newUser = User(email=email, password=hash_password(password))
 		db.session.add(newUser)
 		db.session.commit()
