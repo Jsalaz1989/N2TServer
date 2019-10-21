@@ -189,5 +189,5 @@ def resetPassword():
 	db.session.commit()
 	print('Password reset to ' + newPassword)
 
-	return redirect('http://localhost:3000/resetConfirmed?email='+email)
-	# return redirect('/resetConfirmed?email='+email)
+	# return redirect('http://localhost:3000/resetConfirmed?email='+email)
+	return redirect('/resetConfirmed?email='+email)
